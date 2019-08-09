@@ -19,5 +19,7 @@ The training can be started using `python train.py`. This script instantiates a 
 The learning rate will be decreased on plateaus of the validation loss. The same criterion with higher patience is used to terminate the training.
 
 I was able to reach 93% test set accuracy. Interestingly, this was possible without any dropout layers.
+![Figure of training accuracy and loss](./img/training_accuracy_loss.png)
+![Figure of validation accuracy and loss](./img/validation_accuracy_loss.png)
 
 I used [floydhub](floydhub.com) for my experiments and the output of my training script uses the format used for floydhub to automatically plot the loss and accuracy time series (which I find very convenient). This also explains the existence of the floyd_requirements.txt file. I was able to run the script on the service via `floyd run --gpu --env pytorch-1.0 "python train.py"`. Please note that you have to pip-install the floyd-cli package with the necessary setup for this to work.
